@@ -24,3 +24,28 @@ export async function fetchPostsByAuthor(authorName) {
     console.log(error);
   }
 }
+
+export async function fetchImageCarouselData(id) {
+  try {
+    const { loading, error, data } = await client.query({
+      query: gql`
+        query ImageCarousel($id: String!) {
+          imageCarousel(id: $id) {
+            title
+            imageCollection {
+              items {
+                title
+                description
+                url
+              }
+            }
+          }
+        }
+      `,
+      variables: { id },
+    });
+    return { loading, error, data };
+  } catch (error) {
+    console.log(error);
+  }
+}

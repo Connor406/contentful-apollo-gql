@@ -1,0 +1,12 @@
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 100%;
+  gap: 1rem;
+
+  img {
+    max-height: 400px;
+    object-fit: contain;
+  }
+}

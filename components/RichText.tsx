@@ -7,11 +7,7 @@ const RICHTEXT_OPTIONS = {
       return <p>{children}</p>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
-      return (
-        <a href={node.data.uri} target="_blank">
-          {children}
-        </a>
-      );
+      return <a href={node.data.uri}>{children}</a>;
     },
   },
 };

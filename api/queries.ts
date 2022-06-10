@@ -121,3 +121,29 @@ export async function fetchAllTemplatePages() {
     console.log(error);
   }
 }
+
+export async function fetchNavBarData(id = '1oINl6LYDIQ5aDSLR3MXpl') {
+  try {
+    return await client.query({
+      query: gql`
+        query NavQuery($id: String!) {
+          navBar(id: $id) {
+            sys {
+              id
+            }
+            title
+            navLinksCollection {
+              items {
+                linkName
+                linkUrl
+              }
+            }
+          }
+        }
+      `,
+      variables: { id },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}

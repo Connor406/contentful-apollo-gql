@@ -1,0 +1,22 @@
+nav#navbar {
+  position: fixed;
+  top: 0;
+  height: $nav-height;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: lightcoral;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    gap: 1.5rem;
+
+    li {
+      transition: 0.2s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { SliceRouter } from '@/components';
-import { fetchAllTemplatePages, fetchTemplateDataIDs } from '@/queries';
+import { fetchAllTemplatePages, fetchTemplatePageData } from '@/api';
 
 export default function Template({
   sliceCollection: { items: slices },
@@ -17,7 +17,7 @@ export default function Template({
 }
 
 export async function getStaticProps({ params }) {
-  const { data, error } = (await fetchTemplateDataIDs(params.template)) || {};
+  const { data, error } = (await fetchTemplatePageData(params.template)) || {};
 
   if (error) console.error(error);
 

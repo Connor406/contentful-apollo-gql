@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { client } from '@/services';
 
-export async function fetchTemplateDataIDs(templateSlug) {
+export async function fetchTemplatePageData(templateSlug) {
   try {
     const { loading, error, data } = await client.query({
       query: gql`

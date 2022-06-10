@@ -1,6 +1,5 @@
-import { fetchPostsByAuthor } from '../queries/posts';
 import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
+import styles from '@/styles/Home.module.scss';
 
 export default function Home(posts) {
   return (
@@ -15,12 +14,4 @@ export default function Home(posts) {
       <footer className={styles.footer}></footer>
     </div>
   );
-}
-
-export async function getServerSideProps(ctx) {
-  const { data } = await fetchPostsByAuthor('Connor');
-
-  return {
-    props: { posts: data },
-  };
 }

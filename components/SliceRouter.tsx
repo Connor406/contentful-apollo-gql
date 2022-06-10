@@ -1,4 +1,4 @@
-import { ImageCarousel } from './slices';
+import { ImageCarousel, Post, TwoColumnPost } from './slices';
 
 interface SliceRouterProps {
   slices: any[];
@@ -27,23 +27,5 @@ export default function SliceRouter({ slices }: SliceRouterProps) {
         return ComponentMap[type] || null;
       })}
     </section>
-  );
-}
-
-function TwoColumnPost(props) {
-  return (
-    <div>
-      <h1>I'm A Two Column Post Component</h1>
-      {JSON.stringify(props)}
-    </div>
-  );
-}
-
-function Post(props) {
-  return (
-    <div>
-      <h1>I'm A Post Component</h1>
-      {JSON.stringify(props)}
-    </div>
   );
 }

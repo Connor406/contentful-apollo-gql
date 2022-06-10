@@ -1,7 +1,6 @@
 import styles from '@/styles/components/slices/ImageCarousel.module.scss';
 
 export default function ImageCarousel(props) {
-  console.log(props);
   const { title, imageCollection } = props as any;
 
   return (

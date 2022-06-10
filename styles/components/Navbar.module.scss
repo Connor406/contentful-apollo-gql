@@ -4,7 +4,8 @@ nav#navbar {
   height: $nav-height;
   width: 100vw;
   overflow-x: hidden;
-  background-color: lightcoral;
+  background-color: hsla(0, 79%, 72%, 0.9);
+  color: #fff;
 
   ul {
     display: flex;
@@ -16,6 +17,11 @@ nav#navbar {
       transition: 0.2s ease-in-out;
       &:hover {
         transform: scale(1.1);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
       }
     }
   }

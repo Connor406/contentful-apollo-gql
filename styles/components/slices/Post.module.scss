@@ -1,0 +1,14 @@
+#post {
+  img {
+    max-width: 300px;
+  }
+
+  .author {
+    display: flex;
+    gap: 1rem;
+
+    img {
+      max-width: 3rem;
+    }
+  }
+}

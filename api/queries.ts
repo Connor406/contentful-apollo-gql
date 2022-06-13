@@ -28,19 +28,19 @@ export async function fetchTemplatePageData(templateSlug) {
               sliceCollection {
                 items {
                   ... on Author {
-                    ...AuthorFragment
+                    ...AuthorFmt
                   }
                   ... on ImageCarousel {
-                    ...ImageCarouselFragment
+                    ...ImageCarouselFmt
                   }
                   ... on Post {
-                    ...PostFragment
+                    ...PostFmt
                   }
                   ... on TwoColumnPost {
-                    ...TwoColumnPostFragment
+                    ...TwoColumnPostFmt
                   }
                   ... on Cta {
-                    ...CTAFragment
+                    ...CtaFmt
                   }
                 }
               }

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const AuthorFragment = gql`
-  fragment AuthorFragment on Author {
+  fragment AuthorFmt on Author {
     __typename
     sys {
       id
@@ -14,7 +14,7 @@ export const AuthorFragment = gql`
 `;
 
 export const ImageCarouselFragment = gql`
-  fragment ImageCarouselFragment on ImageCarousel {
+  fragment ImageCarouselFmt on ImageCarousel {
     __typename
     sys {
       id
@@ -31,7 +31,7 @@ export const ImageCarouselFragment = gql`
 `;
 
 export const PostFragment = gql`
-  fragment PostFragment on Post {
+  fragment PostFmt on Post {
     __typename
     sys {
       id
@@ -56,7 +56,7 @@ export const PostFragment = gql`
 `;
 
 export const TwoColumnPostFragment = gql`
-  fragment TwoColumnPostFragment on TwoColumnPost {
+  fragment TwoColumnPostFmt on TwoColumnPost {
     __typename
     sys {
       id
@@ -83,7 +83,7 @@ export const TwoColumnPostFragment = gql`
 `;
 
 export const CTAFragment = gql`
-  fragment CTAFragment on Cta {
+  fragment CtaFmt on Cta {
     __typename
     sys {
       id

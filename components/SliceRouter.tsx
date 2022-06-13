@@ -16,7 +16,7 @@ export default function SliceRouter({ slices }: SliceRouterProps) {
     <section>
       {slices.map((slice) => {
         const {
-          __typename: type,
+          __typename,
           sys: { id },
         } = slice;
         const ComponentMap = {
@@ -25,7 +25,7 @@ export default function SliceRouter({ slices }: SliceRouterProps) {
           Post: <Post key={id} {...slice} />,
           Cta: <CTA key={id} {...slice} />,
         };
-        return ComponentMap[type] || null;
+        return ComponentMap[__typename] || null;
       })}
     </section>
   );

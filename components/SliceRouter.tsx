@@ -1,4 +1,4 @@
-import { ImageCarousel, Post, TwoColumnPost } from './slices';
+import { ImageCarousel, Post, TwoColumnPost, CTA } from './slices';
 
 interface SliceRouterProps {
   slices: any[];
@@ -23,6 +23,7 @@ export default function SliceRouter({ slices }: SliceRouterProps) {
           ImageCarousel: <ImageCarousel key={id} {...slice} />,
           TwoColumnPost: <TwoColumnPost key={id} {...slice} />,
           Post: <Post key={id} {...slice} />,
+          Cta: <CTA key={id} {...slice} />,
         };
         return ComponentMap[type] || null;
       })}

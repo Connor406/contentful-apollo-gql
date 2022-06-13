@@ -1,10 +1,22 @@
 import { gql } from '@apollo/client';
 import { client } from '@/services';
+import {
+  AuthorFragment,
+  ImageCarouselFragment,
+  PostFragment,
+  TwoColumnPostFragment,
+  CTAFragment,
+} from './fragments';
 
 export async function fetchTemplatePageData(templateSlug) {
   try {
     const { loading, error, data } = await client.query({
       query: gql`
+        ${AuthorFragment}
+        ${ImageCarouselFragment}
+        ${PostFragment}
+        ${TwoColumnPostFragment}
+        ${CTAFragment}
         query templatePageEntryQuery($slug: String!) {
           templatePageCollection(where: { slug: $slug }, limit: 1) {
             items {
@@ -16,74 +28,19 @@ export async function fetchTemplatePageData(templateSlug) {
               sliceCollection {
                 items {
                   ... on Author {
-                    __typename
-                    sys {
-                      id
-                    }
-                    name
-                    picture {
-                      url
-                    }
+                    ...AuthorFragment
                   }
                   ... on ImageCarousel {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    imageCollection {
-                      items {
-                        url
-                        title
-                        description
-                      }
-                    }
+                    ...ImageCarouselFragment
                   }
                   ... on Post {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    slug
-                    coverImage {
-                      url
-                    }
-                    excerpt
-                    content {
-                      json
-                    }
-                    author {
-                      name
-                      picture {
-                        url
-                        description
-                      }
-                    }
+                    ...PostFragment
                   }
                   ... on TwoColumnPost {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    image {
-                      url
-                      description
-                    }
-                    leftColumn {
-                      json
-                    }
-                    rightColumn {
-                      json
-                    }
-                    author {
-                      name
-                      picture {
-                        url
-                        description
-                      }
-                    }
+                    ...TwoColumnPostFragment
+                  }
+                  ... on Cta {
+                    ...CTAFragment
                   }
                 }
               }

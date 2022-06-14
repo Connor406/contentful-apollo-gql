@@ -1,3 +1,4 @@
+import Types from '@/api/types/contentful';
 import { ImageCarousel, Post, TwoColumnPost, CTA } from './slices';
 
 interface SliceRouterProps {

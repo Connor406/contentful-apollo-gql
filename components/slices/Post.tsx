@@ -1,5 +1,5 @@
+import { IPostFields } from '@/api/types/contentful';
 import styles from '@/styles/components/slices/Post.module.scss';
-
 import RichText from '../RichText';
 
 export default function Post({
@@ -9,7 +9,7 @@ export default function Post({
   excerpt,
   slug,
   title,
-}) {
+}: IPostFields) {
   return (
     <div id={styles.post}>
       <h1>{title}</h1>

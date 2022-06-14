@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { ApolloQueryResult, gql } from '@apollo/client';
 import { client } from '@/services';
 import {
   AuthorFragment,
@@ -7,49 +7,51 @@ import {
   TwoColumnPostFragment,
   CTAFragment,
 } from './fragments';
+import { ITemplatePage } from './types/contentful';
 
 export async function fetchTemplatePageData(templateSlug) {
   try {
-    const { loading, error, data } = await client.query({
-      query: gql`
-        ${AuthorFragment}
-        ${ImageCarouselFragment}
-        ${PostFragment}
-        ${TwoColumnPostFragment}
-        ${CTAFragment}
-        query templatePageEntryQuery($slug: String!) {
-          templatePageCollection(where: { slug: $slug }, limit: 1) {
-            items {
-              title
-              slug
-              sys {
-                id
-              }
-              sliceCollection {
-                items {
-                  ... on Author {
-                    ...AuthorFmt
-                  }
-                  ... on ImageCarousel {
-                    ...ImageCarouselFmt
-                  }
-                  ... on Post {
-                    ...PostFmt
-                  }
-                  ... on TwoColumnPost {
-                    ...TwoColumnPostFmt
-                  }
-                  ... on Cta {
-                    ...CtaFmt
+    const { loading, error, data }: ApolloQueryResult<ITemplatePage> =
+      await client.query({
+        query: gql`
+          ${AuthorFragment}
+          ${ImageCarouselFragment}
+          ${PostFragment}
+          ${TwoColumnPostFragment}
+          ${CTAFragment}
+          query templatePageEntryQuery($slug: String!) {
+            templatePageCollection(where: { slug: $slug }, limit: 1) {
+              items {
+                title
+                slug
+                sys {
+                  id
+                }
+                sliceCollection {
+                  items {
+                    ... on Author {
+                      ...AuthorFmt
+                    }
+                    ... on ImageCarousel {
+                      ...ImageCarouselFmt
+                    }
+                    ... on Post {
+                      ...PostFmt
+                    }
+                    ... on TwoColumnPost {
+                      ...TwoColumnPostFmt
+                    }
+                    ... on Cta {
+                      ...CtaFmt
+                    }
                   }
                 }
               }
             }
           }
-        }
-      `,
-      variables: { slug: templateSlug },
-    });
+        `,
+        variables: { slug: templateSlug },
+      });
     return { loading, error, data };
   } catch (error) {
     console.log(error);

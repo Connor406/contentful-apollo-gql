@@ -1,12 +1,11 @@
+import { ICtaFields } from '@/api/types/contentful';
 import styles from '@/styles/components/slices/CTA.module.scss';
 
-export default function CTA(props) {
-  const {
-    contentfulMetadata: { tags },
-    link,
-    title,
-  } = props;
-
+export default function CTA({
+  contentfulMetadata: { tags },
+  link,
+  title,
+}: ICtaFields & { contentfulMetadata: any }) {
   const isDarkMode = tags.length ? tags[0].name === 'Color Mode: dark' : false;
 
   return (

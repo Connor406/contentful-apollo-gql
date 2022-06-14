@@ -1,3 +1,4 @@
+import { ITwoColumnPost, ITwoColumnPostFields } from '@/api/types/contentful';
 import styles from '@/styles/components/slices/TwoColumnPost.module.scss';
 import classNames from 'classnames';
 import RichText from '../RichText';
@@ -8,8 +9,7 @@ export default function TwoColumnPost({
   image,
   leftColumn,
   rightColumn,
-  // sys: { id }, // <==== probably not needed in most cases
-}) {
+}: ITwoColumnPostFields) {
   return (
     <div id={styles.twoColumnPost}>
       <h1>{title}</h1>
